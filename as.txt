@@ -1,0 +1,43 @@
+#hamburger-menu {
+  display: inline-block;
+}
+.navbar .navbar-nav {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  background-color: #fff;
+  width: 30rem;
+  height: 100vh;
+}
+.navbar .navbar-nav a {
+  color: #010101;
+  display: block;
+  margin: 1.5rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+.navbar .navbar-nav a::after {
+  transform-origin: 0 0;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.2);
+}
+
+-- javaj --
+
+// Toggle class active
+const navbarNav = document.querySelector(".navbar-nav");
+//ketika menu di klik
+document.querySelector("#hamburger-menu").onclick = () => {
+  navbarNav.classList.toggle("active");
+};
+
+//klik di luar sidebar untuk menghilangkan nav
+const hamburger = document.querySelector("#hamburger-menu");
+
+document.addEventListener("click", function (e) {
+  if (!hamburger.contains(e.target) && !navbarNav.contains(e.target)) {
+    navbarNav.classList.remove("active");
+  }
+});
